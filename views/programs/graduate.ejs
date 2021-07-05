@@ -1,0 +1,256 @@
+<% include ../partials/header %> 
+<style>
+
+
+</style>
+
+<br>
+ 
+
+<div class='container'>
+	
+	
+	
+	<!-- ====================================================================== -->
+	<!-- FOR SEARCH BOX -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Communication" && program.length != 0){ %>
+			<h3>Faculty of Communication</h3>
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->
+	
+	
+	
+	
+	<h2>
+		Masters and PHD Programs
+	</h2>
+	<br>
+	
+	<h3>Graduate School Of Social Sciences</h3>
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "School of Art and Design"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card" >
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+				
+         <!-- <p>
+           <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>
+	
+	<br>
+	<br>
+	
+	<h3>Graduate School Of Natural and Applied Sciences</h3>
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "School of Health Sciences"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card" >
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+				
+         <!-- <p>
+           <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>
+	
+	<br>
+	<br>
+	
+	<h3>Graduate School Of Educational Sciences </h3>
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "School of education"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card" >
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+				
+         <!-- <p>
+           <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>
+	
+	
+	<br>
+	<br>
+	
+	<h3>Graduate School Of Health Sciences </h3>
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "School of 4th department"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card" >
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+				
+         <!-- <p>
+           <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>
+	
+	
+	<br>
+	<br>
+	
+	<h3>PHD Programs Offered By Bahcesehir </h3>
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "School of PHD"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card" >
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+				
+         <!-- <p>
+           <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>
+	
+	
+	
+  </div>
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include ../partials/footer %>

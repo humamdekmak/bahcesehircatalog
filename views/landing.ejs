@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bahcesehir Catalog</title>
+		    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link rel="stylesheet" href="/stylesheets/xxxx.css">
+		 <link rel="stylesheet" href="/stylesheets/footer.css"> -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+		<style>
+
+		</style>
+    </head>
+    <body>
+		<div class="homepage">
+			
+		
+		
+		<!-- onLoad="window.scrollBy(0,100)" -->
+    <div class="container">
+        <% if(error && error.length > 0){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= error %>
+            </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+            <div class="alert alert-success" role="alert">
+                <%= success %>
+            </div>
+        <% } %>
+    </div>
+		
+		
+		
+
+		
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		
+
+
+    <div id="landing-header">
+		<img src="https://drasco.org/wp-content/uploads/2019/11/bau-bahcesehir-universitesi-logo.png" style="width:280px;
+      height:100px;
+      margin-top:50px;">
+        <h1>Welcome to Bahcesehir Catalog</h1>
+		<p style="color:white;">This website is created to help prospective students just like you to choose their career path and guide them through the process from the start of choosing a department to application and further more</p>
+				<p style="color:white;">
+					Which department are you intrested in ?
+		</p>
+		
+		
+<div class="d-flex justify-content-center align-items-center container ">
+    <div class="row ">
+			<form action="/programs" method="GET" class="form-inline">
+                <div class="form-group">
+					<input type="text" name="search" placeholder="Search" class="form-control" style="">
+                  <input type="submit" value="Search" class="btn btn-primary">
+				   </div>
+           </form>
+		        
+
+    </div>
+	        
+
+</div>
+		
+		
+		<br>
+		<br>
+		
+		
+		
+		
+        <p>
+
+       </p>
+		<a href="/programs" class="btn btn-lg btn-primary">View All Programs</a>
+    </div>
+		</div>
+	
+			
+
+		
+
+
+   
+
+<% include partials/footer %>

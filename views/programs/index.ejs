@@ -1,0 +1,545 @@
+<% include ../partials/header %> 
+<style>
+
+
+</style>
+
+<br>
+ 
+
+<div class='container'>
+	
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+     	<h2>
+		Faculties and Departments
+	</h2>
+    </div>
+    <div class="col-sm">
+      <div class="d-flex justify-content-center align-items-center container ">
+    <div class="row ">
+			<form action="/programs" method="GET" class="form-inline">
+                <div class="form-group">
+					<input type="text" name="search" placeholder="Search Program" class="form-control" style="">
+                  <input type="submit" value="Search" class="btn btn-primary">
+				   </div>
+           </form>
+		        
+
+    </div>
+    </div>
+  </div>
+</div>
+
+	
+
+<!-- ====================================================================== -->
+	<!-- FOR SEARCH BOX -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Dentistry" && program.length != 0){ %>
+			<h3>Faculty of Dentistry</h3>
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->
+	
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+	
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h5><%= noMatch %></h5>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Dentistry"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+			
+			<a href="/programs/<%= program._id %>">
+				
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" style="width:100%" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+				
+          <!--<p>
+            <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+   <% })%>
+	  </div>
+		
+	
+	 <!-- ====================================================================== -->
+	<!-- FOR SEARCH BOX -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Educational Sciences" && program.length != 0){ %>
+			<h3>Faculty of Educational Sciences</h3>
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->
+	
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Educational Sciences"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+         <!-- <p>
+            <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>
+	  
+	
+	
+	<!-- ====================================================================== -->
+	<!-- FOR SEARCH BOX -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Law" && program.length != 0){ %>
+			<h3>Faculty of Law</h3>
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->
+	
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Law"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+         <!-- <p>
+            <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>
+	
+	
+
+	<!-- ====================================================================== -->
+	<!-- FOR SEARCH BOX -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Communication" && program.length != 0){ %>
+			<h3>Faculty of Communication</h3>
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->
+	
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Communication"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+         <!-- <p>
+            <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>	
+	
+	
+	
+	
+	<!-- ====================================================================== -->
+	<!-- FOR SEARCH BOX -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Economics, Adminstrative and Social Sciences" && program.length != 0){ %>
+	<h3>Faculty of Economics, Adminstrative and Social Sciences</h3>
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->
+	
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Economics, Adminstrative and Social Sciences"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+         <!-- <p>
+            <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>		
+	
+	
+	
+	
+<!-- ============================================================================ -->	
+	<!-- FOR SEARCH BOX -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Architecture and Design" && program.length != 0){ %>
+	<h3>Architecture and Design</h3>
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->
+	
+	
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Architecture and Design"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+          <!--<p>
+            <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>		
+	
+	
+<!-- ============================================================================ -->	
+	<!-- FOR SEARCH BOX -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Engineering and Natural Sciences" && program.length != 0){ %>
+	<h3>Engineering and Natural Sciences</h3>
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->
+	
+	
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Engineering and Natural Sciences"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+         <!-- <p>
+            <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>		
+	
+	
+	
+<!-- ============================================================================ -->	
+	<!-- FOR SEARCH BOX -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Health Sciences" && program.length != 0){ %>
+		<h3>Health Sciences</h3>
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->	
+	
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Health Sciences"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+         <!-- <p>
+            <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>	
+	
+	
+	
+	
+<!-- ============================================================================ -->	
+	<!-- FOR SEARCH BOX -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Medicine" && program.length != 0){ %>
+		<h3>Medicine</h3>
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->	
+	
+	
+	
+	
+	<br>
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+    <% programs.forEach(program => {%>
+		<% if(program.faculty == "Medicine"){ %>
+	  		
+	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card" >
+			<a  href="/programs/<%= program._id %>">
+          <img class="campground__image" src="<%= program.image %>" alt="<%= program.name %>" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= program.name %></h5>
+          </div>
+			</a>
+				
+         <!-- <p>
+           <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= program._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+	  
+	  <% } %>
+    <% })%>
+  </div>		
+	
+	<br>
+		<br>
+	
+	
+	
+<br>
+		<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include ../partials/footer %>

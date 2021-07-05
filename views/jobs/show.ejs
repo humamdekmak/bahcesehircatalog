@@ -1,0 +1,121 @@
+<% include ../partials/header %>
+<style>
+	
+
+</style>
+<div class="container">
+
+	
+	
+<br>
+	
+	    <% if (currentUser) {%>
+          <a class="btn btn-warning btn-sm" href="/jobs/<%= job._id %>/edit">Edit</a>
+          <form class="delete-form" action="/jobs/<%= job._id %>?_method=DELETE" method="POST">
+            <button id="delete-form" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+          </form>
+        <% } %>
+
+	<div aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" ><a href="/jobs">Jobs</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= job.name %></li>
+  </ol>
+</div>
+	<img src="https://cdn.pixabay.com/photo/2017/05/01/14/58/entrepreneur-2275739_960_720.jpg" style="width:100%;" >
+	
+
+	        <div class="row">
+  <div class="col-4">
+	  	 <br>
+    <div class="list-group" id="list-tab" role="tablist">
+
+      <a class="list-group-item list-group-item-action active" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Description</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Requirements</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-graduate" role="tab" aria-controls="settings">Responsibilities</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-apply" role="tab" aria-controls="settings">Average Salary</a>   
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-english" role="tab" aria-controls="settings">Related Majors</a>               
+    </div>
+  </div>
+  <div class="col-8">
+	  <br>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+      <h2><%= job.name %></h2>
+			<p>
+				<%= job.description %></p>
+
+<br>
+
+
+</div>
+      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+      <h2>Job Requirements</h2>
+		<p>
+			<%= job.requirements %></p>
+    </div>
+    
+          <div class="tab-pane fade" id="list-graduate" role="tabpanel" aria-labelledby="list-settings-list">
+      <h2>Job Responsibilities</h2>
+			  <p><%= job.respons %></p>
+    </div>
+    
+              <div class="tab-pane fade" id="list-apply" role="tabpanel" aria-labelledby="list-settings-list">
+      <h2>Salary</h2>
+					  <p><%= job.salary %></p>
+				  
+    </div>
+    
+              <div class="tab-pane fade" id="list-english" role="tabpanel" aria-labelledby="list-settings-list">
+      <h2>Related Majors</h2>
+		<ul>
+			      <% programs.forEach(function(program1){ %>
+
+
+		<%		if(program1.department == job.department){ %>
+						<li><a href="/programs/<%=program1.id%>"><%= program1.name %></a></li>
+
+
+			<% } %>
+			
+    <% }); %>
+			
+			
+			
+			
+
+
+		<%		if(job.name == "Robotics Engineer" || job.name == "Data Scientist" || job.name == "Full Stack Engineer" || job.name == "Data Engineer" || job.name == "Cybersecurity Specialist" || job.name == "Cloud Engineer"){ %>
+						<li><a href="/programs/6072dc737ad93212f3474ec8">Computer Education and Instructional Technologies</a></li>
+						<li><a href="/programs/607bacc54dc1f40015146031">Computer Engineering</a></li>
+						<li><a href="/programs/607bafcc4dc1f40015146035">Electrical and Electronics Engineering</a></li>
+						<li><a href="/programs/6084e9412614af0015a45bb9">Mechatronic Engineering</a></li>
+						<li><a href="/programs/6084ea862614af0015a45bba">Software Engineering</a></li>			
+			<% } %>
+			
+			
+			
+		<%		if(job.name == "Behavioral Health Technician"){ %>
+						<li><a href="/programs/60750ad58e3e4d0015af5f6a">Sociology</a></li>
+						<li><a href="/programs/60750ad58e3e4d0015af5f6a">Psychology</a></li>	
+			<% } %>
+			
+			
+		<%		if(job.name == "Customer Success Specialist"){ %>
+						<li><a href="/programs/6075074d8e3e4d0015af5f64">Business</a></li>
+						<li><a href="/programs/6075025e8e3e4d0015af5f5d">Public Relations</a></li>	
+			<% } %>			
+			</ul>  
+    </div>
+    </div>
+  </div>
+</div>
+   
+    </div>
+
+
+
+	
+	
+
+<% include ../partials/footer %>

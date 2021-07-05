@@ -1,0 +1,26 @@
+<% include ../partials/header_admin %> 
+
+
+<div class="container">
+	
+	<h1>
+	Welcome to Admin Panel
+
+</h1>
+
+	<br>
+	<% var today = new Date(); %>
+<% var dd = String(today.getDate()).padStart(2, '0'); %>
+<% var mm = String(today.getMonth() + 1).padStart(2, '0'); %>
+<% var yyyy = today.getFullYear(); %>
+
+<% today = mm + '/' + dd + '/' + yyyy; %>
+<h3>
+	Today's Date <%=today%>
+</h3>
+	
+	
+</div>
+
+
+<% include ../partials/footer %> 

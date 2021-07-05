@@ -1,0 +1,78 @@
+<% include ../partials/header_admin %> 
+
+
+<br>
+<br>
+
+<h3>
+	Total Number of Jobs Found: <%=jobs.length%>
+</h3>
+
+<br>
+
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+  This list of Jobs is sorted Alphabetically
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<br>
+
+	<div class="search-container">
+   			<form action="/admin/jobs" method="GET" class="form-inline">
+                <div class="form-group">
+					<input type="text" name="search" placeholder="Search" class="form-control" style="">
+                  <input type="submit" value="Search" class="btn btn-primary">
+				   </div>
+           </form>
+
+    </div>
+
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">View</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+	  <% jobs.sort((a, b) => a.name.localeCompare(b.name)).forEach(job => {%>
+    <tr>
+      <th scope="row"><%=job.name%></th>
+      <td><a href="/jobs/<%=job._id%>" type="button" class="btn btn-primary">View</a></td>
+      <td><a href="/jobs/<%=job._id%>/edit" type="button" class="btn btn-warning">Edit</a></td>
+      <td>
+		  
+		<form class="delete-form" action="/jobs/<%= job._id %>?_method=DELETE" method="POST">
+            	<button id="delete-form" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+          </form>
+		
+		</td>
+    </tr>
+	  <% })%>
+
+  </tbody>
+</table>
+
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h5><%= noMatch %></h5>
+      </div>
+    <% } %>
+
+
+    <% jobs.forEach(job => {%>
+
+   <% })%>
+
+
+
+
+<% include ../partials/footer %> 
+
+

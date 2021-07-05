@@ -1,0 +1,832 @@
+<% include ../partials/header %>
+<style>
+	a {
+		color:black;
+	}
+	ul{
+		color:black;
+	}
+	.btn{
+		padding:10px;
+		margin-left:30px;
+	}
+	
+
+</style>
+
+<div class="container">
+
+	<br>
+	
+
+		       <% pages.forEach(function(page){ %>
+
+
+    <% }); %>
+	
+	    <% if (currentUser) {%>
+          <a class="btn btn-warning btn-sm" href="/programs/<%= program._id %>/edit">Edit</a>
+          <form class="delete-form" action="/programs/<%= program._id %>?_method=DELETE" method="POST">
+            <button id="delete-form" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+          </form>
+        <% } %>
+
+	
+	<div aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"  style="color:black;"><a href="/programs">Programs</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= program.name %></li>
+  </ol>
+</div>
+	<img src="https://images.pexels.com/photos/12064/pexels-photo-12064.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"  width="100%" >
+	
+
+	
+	        <div class="row">
+  <div class="col-4">
+	  				<br>
+    <div class="list-group" id="list-tab" role="tablist">
+
+      <a class="list-group-item list-group-item-action active" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Description</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Job Roles</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-graduate" role="tab" aria-controls="settings">Gradute programs</a>
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-apply" role="tab" aria-controls="settings">How to Apply</a>   
+      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-english" role="tab" aria-controls="settings">English proficiency</a>               
+    </div>
+  </div>
+  <div class="col-8">
+	  <br>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+      <h2><%= program.name %></h2>
+			<p><%= program.description %></p>
+<p>More information from official website</p>
+<a role="button" class="btn btn-primary" class="align:center;" href="<%=program.description_link%>">BAU International</a>
+     <br>
+		  <br>
+      <h2>Related programs</h2>
+      <ul>
+		  <!-- IMPORTANT related loop -->
+
+		  
+		  
+		  
+		  
+		  
+		  
+
+      <% programs.forEach(function(program1){ %>
+
+
+		<%		if(program1.faculty == program.faculty){ %>
+						<li><a href="<%=program1.id%>"><%= program1.name %></a></li>
+
+
+		<% } %>
+    <% }); %>
+</ul> 
+
+</div>
+      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+      <h2>Job Roles</h2>
+		  <p>
+			 Possible Job titles you will be able to apply to</p>
+		  
+		        <% jobs.forEach(function(job){ %>
+
+
+		<%		if(job.department == program.department){ %>
+					<li><a href="/jobs/<%=job.id%>"><%= job.name %></a></li>
+
+
+		<% } %>
+		  
+
+		  
+    <% }); %>
+		  
+<!-- //// -->
+		  
+
+		  
+<!-- ====================================================================== -->
+	<!-- FOR EXCEPTION JOBS "GENERAL Mechatronics Engineering and Mechatronical Engineering (English-Thesis)" -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if(program.name == "Mechatronics Engineering" || program.name == "Mechatronical Engineering (English-Thesis)"  && program.length != 0){ %>
+			<li><a href="jobs/608744d8951be4052149f427">Robotics Engineer</a></li>
+		  <li><a href="jobs/6074cf6c8e3e4d0015af5f37">Automation engineer</a></li>
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->	
+		  
+<!-- ====================================================================== -->
+	<!-- FOR EXCEPTION JOBS "GENERAL Electrical engineering and Electrical and Electronics Engineering (English-Thesis)" -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if(program.name == "Electrical and Electronics Engineering" || program.name == "Electrical and Electronics Engineering (English-Thesis)"  && program.length != 0){ %>
+			<li><a href="jobs/608744d8951be4052149f427">Robotics Engineer</a></li>
+		  <li><a href="jobs/6074e3b58e3e4d0015af5f4c">Electrical Design Engineer</a></li>
+		  <li><a href="jobs/608ef8d8eef7d40320f4d1ed">Software Engineer</a></li>
+		  <li><a href="jobs/6074e4168e3e4d0015af5f4d">Electrical Engineer</a></li>
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->		
+	<!-- ====================================================================== -->
+	<!--and Electronics Engineering (English-Thesis)" -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if(program.name == "Electrical and Electronics Engineering (English-Thesis)"  && program.length != 0){ %>
+				<li><a href="jobs/608ef8d8eef7d40320f4d1ed">Software Engineer</a></li>
+		  		<li><a href="jobs/60a9142b341bd8014ff6755e">Assistant professor</a></li>
+		  		<li><a href="jobs/60999cc6f97398069b300cc1">Research Scientist</a></li>
+		  		<li><a href="jobs/6074dec58e3e4d0015af5f44">Design engineer</a></li>
+
+
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->		  
+		  
+		  
+	<!--Industrial Engineering and Industrial Engineering (English-Thesis)" -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if(program.name == "Industrial Engineering" || program.name == "Industrial Engineering (English – Thesis)"  && program.length != 0){ %>
+				<li><a href="jobs/608744d8951be4052149f427">Robotics Engineer</a></li>
+		  		<li><a href="jobs/608edb7df93418057e0ce0e7">Logisticians</a></li>
+
+
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->		
+	<!--Industrial Engineering (English-Thesis)" -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if(program.name == "Industrial Engineering" || program.name == "Industrial Engineering (English – Thesis)"  && program.length != 0){ %>
+		  		<li><a href="jobs/60999cc6f97398069b300cc1">Research Scientist</a></li>
+		  		<li><a href="jobs/60a9142b341bd8014ff6755e">Assistant professor</a></li>
+		  		<li><a href="jobs/60999cc6f97398069b300cc1">Research Scientist</a></li>
+		  		<li><a href="jobs/6074dec58e3e4d0015af5f44">Design engineer</a></li>
+
+
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->				  
+<!-- ============================================================================ -->		
+	<!--Mathematics" -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if(program.name == "Mathematics" && program.length != 0){ %>
+				<li><a href="jobs/608744d8951be4052149f427">Robotics Engineer</a></li>
+		  		<li><a href="jobs/60753bcc30aac50015e35210">Financial Analyst</a></li>
+		  		<li><a href="jobs/6074cf6c8e3e4d0015af5f37">Automation Engineer</a></li>
+		  		<li><a href="jobs/6074dec58e3e4d0015af5f44">Design engineer</a></li>
+		  		<li><a href="jobs/6074ca1c8e3e4d0015af5f34">Actuary</a></li>
+		  		<li><a href="jobs/60cddccc90c54b001554e1bf">Accountant</a></li>
+
+
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->			  
+
+<!-- ============================================================================ -->				  
+<!-- ============================================================================ -->		
+	<!--Computer Engineering || " -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if(program.name == "Computer Engineering" || program.name == "Computer Engineering (English-Non-Thesis)" || program.name=="Computer Engineering (English-Thesis)" && program.length != 0){ %>
+				<li><a href="jobs/608744d8951be4052149f427">Robotics Engineer</a></li>
+				<li><a href="jobs/608749b7951be4052149f42b">Cybersecurity Specialist</a></li>		  
+		  		<li><a href="jobs/6074d88d8e3e4d0015af5f3d">Computer Network Architect</a></li>
+		  		<li><a href="jobs/60d0f5bb4e1e360e0b10c94a">Web Developer</a></li>
+		  		<li><a href="jobs/6074dec58e3e4d0015af5f44">Design engineer</a></li>	  		
+
+
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>
+<!-- ============================================================================ -->			  
+
+<!-- ============================================================================ -->			  
+	
+	<!--Computer Engineering (English-Non-Thesis) || " -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Computer Engineering (English-Non-Thesis)" || program.name=="Computer Engineering (English-Thesis)" && program.length != 0){ %>
+				<li><a href="jobs/60999cc6f97398069b300cc1">Research Scientist</a></li>
+				<li><a href="jobs/6074e4168e3e4d0015af5f4d">Electrical Engineer</a></li>
+
+
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->	
+<!-- ============================================================================ -->			  
+	
+	<!--Artificial Intelligence" -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Artificial Intelligence" || program.name == "Artificial Intelligence (English – Thesis)" && program.length != 0){ %>
+				<li><a href="jobs/60874612951be4052149f428">Data Scientist</a></li>
+				<li><a href="jobs/6074e4168e3e4d0015af5f4d">Electrical Engineer</a></li>
+
+
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->	
+<!-- ============================================================================ -->			  
+	
+	<!--Business" -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Business" && program.length != 0){ %>
+				<li><a href="jobs/60903fc5bf412a0d6afcc112">Sales development representative</a></li>
+				<li><a href="jobs/6090382dd01416017719b03b">Customer Success Specialist</a></li>
+				<li><a href="jobs/60ce23fbd0c07800156e3f85">Financial Advisor</a></li>
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>			  
+<!-- ============================================================================ -->			  
+	
+	<!--Public Relations" -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Public Relations" && program.length != 0){ %>
+				<li><a href="jobs/6090382dd01416017719b03b">Customer Success Specialist</a></li>
+				<li><a href="jobs/609995a2f97398069b300cb7">Public Relations manager</a></li>
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->			  
+<!-- ============================================================================ -->			  
+	
+	<!--Sociology" -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Sociology" && program.length != 0){ %>
+				<li><a href="jobs/60904008bf412a0d6afcc113">Behavioral Health Technician</a></li>
+				<li><a href="jobs/60ce3580e15d6a00152d9de8">Case manager</a></li>
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->		
+<!-- ============================================================================ -->			  
+		  
+	
+	<!--Software engineering" -->
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Software Engineering" && program.length != 0){ %>
+				<li><a href="jobs/608749b7951be4052149f42b">Cybersecurity Specialist</a></li>
+		  <li><a href="jobs/608ef8d8eef7d40320f4d1ed">Software Engineer</a></li>
+				<li><a href="jobs/60902ce9d01416017719b035">Video Game Designer</a></li>	  
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->	
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--Industrial Design" -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Industrial Design" && program.length != 0){ %>
+				<li><a href="jobs/608ed8a3f93418057e0ce0e1">Product designer</a></li>
+		  <li><a href="jobs/6074dec58e3e4d0015af5f44">Design engineer</a></li>  
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->	
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--Digital Game Design -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Digital Game Design" && program.length != 0){ %>
+				<li><a href="jobs/608ed8a3f93418057e0ce0e1">Product designer</a></li> 
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--Digital Game Design -->
+
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Digital Game Design" && program.length != 0){ %>
+				<li><a href="jobs/608ed8a3f93418057e0ce0e1">Product designer</a></li> 
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->
+		  <!-- ============================================================================ -->			  
+	
+	<!--	<!--Economics and Finance -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Economics and Finance" && program.length != 0){ %>
+				<li><a href="jobs/60753bcc30aac50015e35210">Financial Analyst</a></li> 
+				<li><a href="jobs/60a9142b341bd8014ff6755e">Assistant professor</a></li> 
+		  		<li><a href="jobs/60cddccc90c54b001554e1bf">Accountant</a></li> 
+				<li><a href="jobs/60cddd4e90c54b001554e1c0">Economic Analyst</a></li>
+		  		<li><a href="jobs/60ce23fbd0c07800156e3f85">Financial Advisor</a></li>		 
+		  		<li><a href="jobs/60cdde8d90c54b001554e1c1">Market Analyst</a></li>		  
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->	
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--Political science and international relations -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Political science and international relations" && program.length != 0){ %>
+				<li><a href="jobs/60a9142b341bd8014ff6755e">Assistant professor</a></li> 
+				<li><a href="jobs/609996d2f97398069b300cba">Public relations specialist</a></li> 
+		  		<li><a href="jobs/60999605f97398069b300cb8">Political Scientist</a></li> 
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->		
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--Digital Game Design -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Political science and international relations" && program.length != 0){ %>
+				<li><a href="jobs/60a9142b341bd8014ff6755e">Assistant professor</a></li> 
+				<li><a href="jobs/609996d2f97398069b300cba">Public relations specialist</a></li> 
+		  		<li><a href="jobs/60999605f97398069b300cb8">Political Scientist</a></li> 
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--History -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "History (Turkish – Non-Thesis)" || program.name == "History (Turkish-Thesis)"|| program.name=="American culture and literature" && program.length != 0){ %>
+				<li><a href="jobs/60999605f97398069b300cb8">Political Scientist</a></li> 
+				<li><a href="jobs/60c33168ddbe2b01897c1e53">Teacher</a></li> 
+
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->			 
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--History -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "History (Turkish – Non-Thesis)" || program.name == "History (Turkish-Thesis)" && program.length != 0){ %>
+				<li><a href="jobs/60999605f97398069b300cb8">Political Scientist</a></li> 
+				<li><a href="jobs/60c33168ddbe2b01897c1e53">Teacher</a></li> 
+
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--History -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "History (Turkish – Non-Thesis)" || program.name == "History (Turkish-Thesis)" && program.length != 0){ %>
+				<li><a href="jobs/60999605f97398069b300cb8">Political Scientist</a></li> 
+				<li><a href="jobs/60c33168ddbe2b01897c1e53">Teacher</a></li> 
+
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->			
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--History -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "MBA (English – Non-Thesis)" || program.name == "MBA (English – Thesis)" && program.length != 0){ %>
+				<li><a href="jobs/60999605f97398069b300cb8">Political Scientist</a></li> 
+				<li><a href="jobs/60c33168ddbe2b01897c1e53">Teacher</a></li> 
+
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--History -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Prosthodontics" || program.name == "Periodontology" || program.name=="Endodontics" && program.length != 0){ %>
+				<li><a href="jobs/60a9127d341bd8014ff6755c">Dental hygienist</a></li> 
+				<li><a href="jobs/60a27f53b28e92015198adee">Dentist</a></li> 
+		  		<li><a href="jobs/60a9142b341bd8014ff6755e">Assistant professor</a></li>
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->		
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--History -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Associate professor" || program.name == "Assistant professor" && program.length != 0){ %>
+				<li><a href="jobs/6074cf6c8e3e4d0015af5f37">Assistant professor</a></li> 
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--History -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Restorative dentistry" || program.name=="American Culture and Literature" && program.length != 0){ %>
+				<li><a href="jobs/6074cf6c8e3e4d0015af5f37">Assistant professor</a></li> 
+
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->		  
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--History -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Guidance and psychological counseling, psychology" && program.length != 0){ %>
+				<li><a href="jobs/60c34c55f38ed80c065d5425">Psychologist</a></li> 
+				<li><a href="jobs/60c34a61f38ed80c065d5423">Social worker</a></li> 
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->		  		  
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--History -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Guidance and psychological counseling, psychology" && program.length != 0){ %>
+				<li><a href="jobs/60c34c55f38ed80c065d5425">Psychologist</a></li> 
+				<li><a href="jobs/60c34a61f38ed80c065d5423">Social worker</a></li> 
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->	
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--History -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Guidance and psychological counseling, psychology" && program.length != 0){ %>
+				<li><a href="jobs/60c34c55f38ed80c065d5425">Psychologist</a></li> 
+				<li><a href="jobs/60c34a61f38ed80c065d5423">Social worker</a></li> 
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->
+
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--Preschool Education -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Preschool Education" || program.name == "special education " && program.length != 0){ %>
+				<li><a href="jobs/6074f1f88e3e4d0015af5f55">Special education Teacher</a></li> 
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->		
+		  
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--Computer Education -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "Computer Education and Instructional Technologies" && program.length != 0){ %>
+				<li><a href="jobs/60d0f5bb4e1e360e0b10c94a">Web Developer</a></li> 
+				<li><a href="jobs/60c33168ddbe2b01897c1e53">Teacher</a></li> 		  
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->	
+		  
+<!-- ============================================================================ -->			  
+	
+	<!--	<!--English education -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "English education" && program.length != 0){ %>
+				<li><a href="jobs/60d0f5bb4e1e360e0b10c94a">Web Developer</a></li> 	  
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->			  
+
+		
+	<!-- ============================================================================ -->			  
+	
+	<!--	<!--English education -->
+ 
+	<% if(typeof StopIteration == "undefined") { %>
+ <% StopIteration = new Error("StopIteration");} %>
+			<% try{ %>
+		    <% jobs.forEach(job => {%>
+		<% if( program.name == "English education" && program.length != 0){ %>
+				<li><a href="jobs/60d0f5bb4e1e360e0b10c94a">Web Developer</a></li> 	  
+			<% throw StopIteration %>
+	  		
+	  <% }else{ %>
+				
+		<% } %>
+   <% })%>
+	<% }catch(error) { if(error != StopIteration) throw error; } %>		  
+<!-- ============================================================================ -->			  
+    </div>	
+    
+          <div class="tab-pane fade" id="list-graduate" role="tabpanel" aria-labelledby="list-settings-list">
+      <h2>Graduate programs</h2>
+			  
+			  <h4>
+				   To furthur advance your education..
+				  <br>
+				  <br>
+				  <br>
+				  <a role="button" class="btn btn-primary" href="https://graduateprograms.bau.edu.tr/">Graduate Programs Website</a>
+			  </h4>
+			  
+			 
+
+   
+    </div>
+    
+              <div class="tab-pane fade" id="list-apply" role="tabpanel" aria-labelledby="list-settings-list">
+      <h2>How to Apply</h2>
+                <p>
+				   Follow the steps on how to apply in the link below
+				  </p>
+				  <a role="button" class="btn btn-primary" href="https://int.bau.edu.tr/admission/how-to-apply/">Application</a>
+    </div>
+    
+              <div class="tab-pane fade" id="list-english" role="tabpanel" aria-labelledby="list-settings-list">
+      <h2>English proficiency</h2>
+        <h4>Can I take the BAU English Proficiency exam?​</h4>
+		<ul>
+  			<li><a href="https://bau.edu.tr/content/9884-school-of-foreign-languages-english-preparatory-program" >Information about English preparatory School​ </a></li>
+			<li><a href="https://bau.edu.tr/content/3984-prep-school-sample-exams" >Information about English Proficiency Exam​ </a></li>
+ 			 <li><a href="https://bau.edu.tr/content/9884-school-of-foreign-languages-english-preparatory-program" >Information about Acceptable English certificates​</a></li>
+			</ul>  
+    </div>
+    </div>
+  </div>
+</div>
+   
+    </div>
+
+
+
+	
+	
+
+<% include ../partials/footer %>

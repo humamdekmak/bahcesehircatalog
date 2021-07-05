@@ -1,0 +1,203 @@
+.thumbnail img {
+    width: 100%;
+	height:150px;
+	border-radius: 10px;
+}
+
+.thumbnail {
+    padding: 0;
+	background-color:#F0F6F4;
+	 border-radius: 10px;
+
+}
+
+	
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+#delete-form {
+    display: inline;
+}
+
+
+    /* footer{
+              display: none;
+          }
+          
+       @media screen and (max-width:640px) {
+    footer {
+        display: block!important;
+		  position:fixed;
+  			bottom:0;
+    }
+           
+    nav{
+        display:none!important;       
+    }
+} */
+
+
+
+
+
+.group-container{
+    padding:0;
+    height:100%;
+}
+
+.selectors, .block{
+    height:100%;
+    width:100%;
+}
+
+.selectors button{
+    border: 0;
+    border-radius: 0;
+    background-color: #f8f9fa !important;
+    width:25%;
+    margin-left: 0;
+}
+
+.selectors button:active{
+    border:0;
+}
+
+.selectors button:focus{
+    border:0;
+    outline: 0;
+    box-shadow: 0 0 0 0px;
+}
+
+.active, .selector-holder{
+    display: flex;
+    flex-direction: column;
+}
+
+.inactive{
+    display: none;
+}
+
+.selector-holder span{
+    font-size: 0.8rem;
+}
+
+Colors of the buttons
+.button-active, .selectors button:hover, .selectors button:active, .selectors button:focus{
+    color: #ff0000;
+}
+
+.button-inactive{
+    color: #000;
+}
+
+button {
+    user-select: none;
+}
+
+
+
+/* Side Bar*/
+.sidebar {
+    margin:0 auto;
+    padding: 0;
+    width: 300px;
+    margin-bottom: 80px;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+	background: linear-gradient(-45deg, #ee7752, #000003, #23a6d5, #23d5ab);
+	background-size: 2000% 2000%;
+	animation: gradient 15s ease infinite;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+
+  }
+
+
+.nav{
+	margin-top:30px;
+	overflow:hidden;
+}
+  .sidebar img{
+      width:280px;
+      height:100px;
+      margin-top:50px;
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+	  display:block;
+	  padding:35px;
+	  width:300px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+	border-bottom:1px solid #ddd;
+
+padding-bottom: 25px;
+	  
+  }
+i {
+	margin-right:10px;
+}
+  
+  /* Active/current link */
+  .sidebar a.active {
+    color: black;
+  }
+  
+  /* Links on mouse-over */
+  .sidebar a:hover:not(.active) {
+    background-color: #F0F6F4;
+    color: black;
+  }
+  
+  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+  div.content {
+    margin-left: 300px;
+    padding: 1px 16px;
+    height: 1000px;
+  }
+ 
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar */
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  }
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+.container h2{
+	font-size: 20px;
+  font-weight: bold;
+  color:#033F47;  
+  font-family: "Poppins", sans-serif;
+  padding:20px;
+}
+.container h4{
+		font-size: 20px;
+  font-weight: bold;
+  color:#033F47;  
+  font-family: "Poppins", sans-serif;
+  padding:0px;  
+	  }

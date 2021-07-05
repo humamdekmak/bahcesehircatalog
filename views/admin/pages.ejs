@@ -1,0 +1,68 @@
+<% include ../partials/header_admin %> 
+
+
+<br>
+<br>
+
+<h3>
+	Pages
+</h3>
+
+<br>
+
+
+
+<a href="/admin/pages/newpage" type="button" class="btn btn-primary">Add Page</a>
+
+<br>
+<br>
+
+
+
+<br>
+
+
+
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">View</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+	  <% pages.forEach(page => {%>
+    <tr>
+      <th scope="row"><%=page.name%></th>
+      <td><a href="/<%=page.name%>" type="button" class="btn btn-primary">View</a></td>
+      <td><a href="/admin/pages/<%=page.name%>/edit" type="button" class="btn btn-warning">Edit</a></td>
+      <td>
+		  
+		<form class="delete-form" action="/<%=page.name%>?_method=DELETE" method="POST">
+            	<button id="delete-form" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+          </form>
+		
+		</td>
+    </tr>
+	  <% })%>
+
+  </tbody>
+</table>
+
+
+
+
+    <% pages.forEach(page => {%>
+
+   <% })%>
+
+
+
+
+<% include ../partials/footer %> 
+
+

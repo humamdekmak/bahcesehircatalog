@@ -1,0 +1,81 @@
+<% include ./partials/header %> 
+<style>
+	.container h5{
+	font-size: 15px;
+  font-weight: bold;
+  color:black;  
+   font-family: 'Open Sans', sans-serif;
+  padding:5px; 
+	}
+	.thumbnail img {
+    width: 100%;
+		height:200px;
+}
+	
+</style>
+
+
+<br>
+
+<div class='container'>
+<h2 style="text-align:center">
+	Emerging Careers
+</h2>
+
+
+<h4 style="text-align:center">
+	According to the 2020 Emerging Jobs report, the Emerging Jobs analysis is based on all LinkedIn members with a public profile that has
+held a full-time position within the U.S. during the past five years. Once the talent pool has
+been identified, we then calculate the share of hiring and Compound Annual Growth Rate
+for each occupation between 2015 and 2019 to identify the roles with the largest rate of hiring
+growth. These become our Emerging Jobs.
+</h4>
+<br>
+	<br>
+		    
+	
+
+		
+    
+	
+		
+  <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+	
+
+    <% jobs.forEach(job => {%>
+		
+	  		
+ <% if(job.name == "Robotics Engineer" || job.name == "Data Scientist" || job.name == "Full Stack Engineer" || job.name == "Customer Success Specialist" || job.name == "Data Engineer" || job.name == "Behavioral Health Technician" || job.name == "Cybersecurity Specialist" || job.name == "Cloud Engineer"){ %>
+		  
+		  	  		      <div class="col-md-3 col-sm-6">
+        <div class="thumbnail card">
+			
+			<a href="/jobs/<%= job._id %>">
+				
+          <img class="campground__image" src="<%= job.image %>" alt="<%= job.name %>" style="width:100%" />
+          <div class="caption">
+			  <br>
+            <h5 class="caption"><%= job.name %></h5>
+          </div>
+			</a>
+				
+          <!--<p>
+            <a class="btn btn-primary btn-sm btn-b-mg" href="/programs/<%= job._id %>">
+              More Info
+            </a>
+          </p>-->
+			<br>
+        </div>
+		  <br>
+      </div>
+	  <br>
+		  
+	  <% } %>
+	  
+	  
+   <% })%>
+	  </div>
+		
+
+
+<% include ./partials/footer %> 

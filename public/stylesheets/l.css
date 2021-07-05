@@ -1,0 +1,131 @@
+
+
+body {
+background: linear-gradient(-45deg, #ee7752, #000003, #23a6d5, #23d5ab);
+	background-size: 2000% 2000%;
+	animation: gradient 15s ease infinite;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+#landing-header {
+  z-index: 1;
+  position: relative;
+  text-align: center;
+
+}
+
+
+
+.center{
+	text-align:center;
+}
+
+
+form{
+	text-align: center;
+}
+
+.form-group{
+	
+}
+
+
+    footer{
+              display: none;
+          }
+          
+       @media screen and (max-width:640px) {
+    footer {
+        display: block!important;
+		  position:fixed;
+  			bottom:0;
+    }
+           
+    nav{
+        display:none!important;       
+    }
+}
+
+
+
+
+
+.group-container{
+    padding:0;
+    height:100%;
+}
+
+.selectors, .block{
+    height:100%;
+    width:100%;
+}
+
+.selectors button{
+    border: 0;
+    border-radius: 0;
+    background-color: #f8f9fa !important;
+    width:25%;
+    margin-left: 0;
+}
+
+.selectors button:active{
+    border:0;
+}
+
+.selectors button:focus{
+    border:0;
+    outline: 0;
+    box-shadow: 0 0 0 0px;
+}
+
+.active, .selector-holder{
+    display: flex;
+    flex-direction: column;
+}
+
+.inactive{
+    display: none;
+}
+
+.selector-holder span{
+    font-size: 0.8rem;
+}
+
+/* Colors of the buttons*/
+.button-active, .selectors button:hover, .selectors button:active, .selectors button:focus{
+    color: #ff0000;
+}
+
+.button-inactive{
+    color: #000;
+}
+#landing-header h1{
+	  font-size: 60px;
+  font-weight: bold;
+  color:#F0F6F8;  
+  padding:20px;
+	margin-bottom:30px;
+  font-family: 'Playfair Display', serif;
+}
+#landing-header h4{
+	font-family: "Poppins", sans-serif;
+  padding:20px;
+}
+#landing-header p{
+text-align:center;
+	font-size:17px;
+  font-family: "Poppins", sans-serif;
+  padding-left: 300px;
+	padding-right:300px;
+  margin-bottom:20px;
+}

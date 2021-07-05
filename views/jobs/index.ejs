@@ -1,0 +1,116 @@
+<% include ../partials/header %> 
+<style>
+	#list a{
+	color:black;
+}
+.container .search-container {
+padding-left:20px;
+  align-items: center;
+}
+
+.container input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.container .search-container button {
+align-items: center;
+  padding: 6px 8px;
+  margin-top: 8px;
+  margin-right: 16px;
+	margin-left:10px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.container .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
+  .container .search-container {
+    float: none;
+  }
+
+</style>
+<br>
+<br>
+<div class='container'>
+	
+	
+	<h2 class="h2">
+		What Job are you interested in?
+	</h2>
+	<br>
+	<div class="search-container">
+            <form action="/jobs" method="GET">
+              <input type="text" placeholder="Click to search..." name="search">
+              <input type="submit" value="Search" class="btn btn-primary">
+            </form>
+
+    </div>
+	<br>
+	
+
+
+
+    <% if (noMatch !== null) {%>
+      <div class="col-md-12">
+        <h4><%= noMatch %></h4>
+      </div>
+    <% } %>
+	<ul id="list">
+    <% jobs.sort((a, b) => a.name.localeCompare(b.name)).forEach(job => {%>
+		
+		
+  <li><a href="/jobs/<%=job.id%>"><%=job.name%></a></li>
+    <% })%>
+		
+		</ul>
+	
+	
+
+
+
+	
+	
+	
+	
+  
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<% include ../partials/footer %>

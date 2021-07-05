@@ -1,0 +1,53 @@
+<% include ../partials/header_admin %>
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center">Edit <%=page.name%> </h1>
+        <div style="width: 300%; margin: 25px auto;">
+            <form action="/<%=page.name%>?_method=PUT" method="POST">
+
+                <div class="form-group">
+					<label>Page name</label>
+                    <input class="form-control" type="text" name="name" value="<%=page.name%>">
+                </div>
+
+				<div class="form-group">
+			  <label>content HTML</label>
+ 				 <textarea  id="editor" name="content" rows="90" cols="1000"><%=page.content%></textarea>
+				</div>				
+                <div class="form-group">
+                    <button class="btn btn-lg btn-primary btn-block">Submit!</button>
+                </div>
+            </form>
+            <a href="/admin">Go Back</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <script>
+        
+    var config, editor;
+
+    config = {
+        mode : "xml",
+        lineNumbers: true,
+        htmlMode: true,
+        theme: "abbott",
+        autoCloseTags:true
+    };
+
+    editor = CodeMirror.fromTextArea(document.getElementById("editor"),config);
+		
+	editor.setSize(null, 550);
+
+
+        
+    </script>
+<% include ../partials/footer %>
+
